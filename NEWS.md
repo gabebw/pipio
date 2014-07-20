@@ -1,8 +1,9 @@
-### HEAD (unreleased)
+### 4.0.0.beta1
 
 * Massive refactoring
 * Chat times respect time zones instead of assuming inputs are UTC
 * Remove C extension
+* Remove `pidgin2adium` command
 * Test against Travis
 
 ### 3.3.0 / 2011-10-16
