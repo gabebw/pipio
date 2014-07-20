@@ -1,1 +1,1 @@
-This folder holds already-parsed logs to allow for testing that Pidgin2Adium's output is correct.
+This folder holds already-parsed logs to allow for testing that Pipio's output is correct.

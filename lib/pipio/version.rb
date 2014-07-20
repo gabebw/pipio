@@ -1,0 +1,3 @@
+module Pipio
+  VERSION = "0.0.1"
+end

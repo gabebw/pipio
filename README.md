@@ -1,4 +1,4 @@
-# pidgin2adium [![Build Status](https://secure.travis-ci.org/gabebw/pidgin2adium.png)](http://travis-ci.org/gabebw/pidgin2adium) [![Code Climate](https://codeclimate.com/github/gabebw/pidgin2adium.png)](https://codeclimate.com/github/gabebw/pidgin2adium)
+# pipio [![Build Status](https://secure.travis-ci.org/gabebw/pipio.png)](http://travis-ci.org/gabebw/pipio) [![Code Climate](https://codeclimate.com/github/gabebw/pipio.png)](https://codeclimate.com/github/gabebw/pipio)
 
 Convert [Pidgin](http://pidgin.im/) (formerly gaim) logs to the
 [Adium](http://adium.im/) format.
@@ -8,7 +8,7 @@ Convert [Pidgin](http://pidgin.im/) (formerly gaim) logs to the
 To deal with meta-information about the chat itself:
 
     path_to_chat_log = File.expand_path('~/path/to/chat_log.html') # or .txt
-    chat = Pidgin2Adium.parse(path_to_chat_log, "Gabe B-W,Gabe,Other Alias")
+    chat = Pipio.parse(path_to_chat_log, "Gabe B-W,Gabe,Other Alias")
     if chat
       puts "Screen name of the person you chatted with: #{chat.their_screen_name}"
       puts "Time the chat started: #{chat.start_time_xmlschema}"
@@ -22,7 +22,7 @@ To deal with meta-information about the chat itself:
 
 Or, to deal with individual messages in a chat:
 
-    chat = Pidgin2Adium.parse("/path/to/log/file.html", "gabe,gbw,gabeb-w")
+    chat = Pipio.parse("/path/to/log/file.html", "gabe,gbw,gabeb-w")
     chat.each do |message|
       puts "Screen name of person who sent this message: #{message.sender_screen_name}"
       puts "Alias of person who sent this message: #{message.sender_alias}"
@@ -58,7 +58,7 @@ You do not need to provide your screenname in the alias list.
 
 ## INSTALL
 
-    gem install pidgin2adium
+    gem install pipio
 
 ## Testing
 
