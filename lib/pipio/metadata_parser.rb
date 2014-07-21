@@ -8,11 +8,19 @@ module Pipio
       {
         my_screen_name: my_screen_name,
         their_screen_name: their_screen_name,
-        start_time: start_time
+        start_time: start_time,
+        service: service
       }
     end
 
     private
+
+    def service
+      match = @first_line.match(/\(([a-z]+)\)/)
+      if match
+        match[1]
+      end
+    end
 
     def their_screen_name
       match = @first_line.match(/Conversation with (.+?) at/)

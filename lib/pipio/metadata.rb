@@ -1,15 +1,16 @@
 module Pipio
   class Metadata
     def initialize(metadata_hash)
+      @service = metadata_hash[:service]
       @my_screen_name = normalize_screen_name(metadata_hash[:my_screen_name])
       @their_screen_name = metadata_hash[:their_screen_name]
       @start_time = metadata_hash[:start_time]
     end
 
-    attr_reader :my_screen_name, :their_screen_name, :start_time
+    attr_reader :my_screen_name, :their_screen_name, :start_time, :service
 
     def valid?
-      [@their_screen_name, @my_screen_name, @start_time].all?
+      [@their_screen_name, @my_screen_name, @start_time, @service].all?
     end
 
     def start_year

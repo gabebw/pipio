@@ -6,15 +6,15 @@ class HtmlChatBuilder < ChatBuilder
   end
 
   def first_line(options = {})
-    assert_keys(options, [:from, :to, :time, :protocol])
+    assert_keys(options, [:from, :to, :time, :service])
 
     @first_line ||= begin
       to = options[:to] || 'TO_SN'
       time = options[:time] || Time.now.strftime('%m/%d/%Y %I:%M:%S %p')
-      protocol = options[:protocol] || 'aim'
+      service = options[:service] || 'aim'
       # Need to track this so we can set the message font color correctly.
       @from = options[:from] || DEFAULT_FROM
-      %(<head><meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>Conversation with #{to} at #{time} on #{@from} (#{protocol})</title></head><h3>Conversation with #{to} at #{time} on #{@from} (#{protocol})</h3>)
+      %(<head><meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>Conversation with #{to} at #{time} on #{@from} (#{service})</title></head><h3>Conversation with #{to} at #{time} on #{@from} (#{service})</h3>)
     end
   end
 

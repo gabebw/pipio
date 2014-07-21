@@ -1,4 +1,11 @@
 describe Pipio::Metadata do
+  context '#service' do
+    it "returns the service" do
+      metadata = Pipio::Metadata.new(service: 'aim')
+      expect(metadata.service).to eq('aim')
+    end
+  end
+
   context '#my_screen_name' do
     it "returns my normalized screen name" do
       metadata = Pipio::Metadata.new(my_screen_name: 'JIM BOB')
@@ -48,13 +55,15 @@ describe Pipio::Metadata do
 
   context '#valid?' do
     it 'is true when all attributes are provided' do
-      metadata = Pipio::Metadata.new({my_screen_name: '',
+      metadata = Pipio::Metadata.new(my_screen_name: '',
         their_screen_name: '',
-        start_time: '' })
+        start_time: '',
+        service: 'aim'
+      )
       expect(metadata).to be_valid
     end
 
-    [:my_screen_name, :their_screen_name, :start_time].each do |attribute|
+    [:my_screen_name, :their_screen_name, :start_time, :service].each do |attribute|
       it "is false when #{attribute} cannot be detected" do
         expect(Pipio::Metadata.new(attribute => nil)).not_to be_valid
       end

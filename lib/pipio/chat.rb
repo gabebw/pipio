@@ -4,14 +4,15 @@ module Pipio
   class Chat
     include Enumerable
 
-    def initialize(lines, my_screen_name, their_screen_name, start_time)
+    def initialize(lines, my_screen_name, their_screen_name, start_time, service)
       @lines = lines
       @my_screen_name = my_screen_name
       @their_screen_name = their_screen_name
       @start_time_xmlschema = start_time.xmlschema
+      @service = service
     end
 
-    attr_reader :lines, :my_screen_name, :their_screen_name, :start_time_xmlschema
+    attr_reader :lines, :my_screen_name, :their_screen_name, :start_time_xmlschema, :service
 
     def to_s
       map(&:to_s).join

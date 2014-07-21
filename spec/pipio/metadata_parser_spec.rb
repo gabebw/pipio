@@ -28,6 +28,16 @@ describe Pipio::MetadataParser do
       expect(metadata[:start_time]).to eq(Time.parse(time_string))
     end
 
+    it 'finds the correct service' do
+      path = create_chat_file('log.html') do |b|
+        b.first_line service: 'aim'
+      end
+
+      metadata = Pipio::MetadataParser.new(first_line_of(path)).parse
+
+      expect(metadata[:service]).to eq 'aim'
+    end
+
     it 'can detect peculiar times' do
       time_string = "1/15/2008 7:14:45 AM"
       expected_time = Time.parse('2008-01-15 07:14:45')
