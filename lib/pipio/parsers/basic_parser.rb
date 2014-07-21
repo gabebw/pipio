@@ -23,7 +23,7 @@ module Pipio
           end
         end
 
-        Chat.new(messages, @metadata.their_screen_name, @metadata.start_time)
+        Chat.new(messages, @metadata.my_screen_name, @metadata.their_screen_name, @metadata.start_time)
       end
     end
 

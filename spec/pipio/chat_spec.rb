@@ -19,6 +19,14 @@ describe Pipio::Chat do
     end
   end
 
+  describe '#my_screen_name' do
+    it 'is my screen name' do
+      chat = Pipio::Chat.new([], 'me', 'them', Time.now)
+
+      expect(chat.my_screen_name).to eq('me')
+    end
+  end
+
   describe '#start_time_xmlschema' do
     it 'is the start time of the chat in xmlschema format' do
       time = Time.now
