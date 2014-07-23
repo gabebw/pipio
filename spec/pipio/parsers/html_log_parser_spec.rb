@@ -6,7 +6,7 @@ describe Pipio::HtmlLogParser do
         3.times { b.message }
       end
 
-      expect(chat.lines.size).to eq(3)
+      expect(chat.messages.size).to eq(3)
     end
 
     it 'returns a Chat with the correct message type' do
@@ -16,7 +16,7 @@ describe Pipio::HtmlLogParser do
         b.message 'second'
       end
 
-      expect(chat.lines.map(&:class)).to eq([Pipio::XMLMessage] * 2)
+      expect(chat.messages.map(&:class)).to eq([Pipio::XMLMessage] * 2)
     end
 
     {
@@ -63,7 +63,7 @@ describe Pipio::HtmlLogParser do
         b.status 'Gabe B-W is now known as gbw.'
       end
 
-      expect(chat.lines).to eq([nil])
+      expect(chat.messages).to eq([nil])
     end
 
     it 'correctly detects auto-reply messages' do
@@ -155,6 +155,6 @@ describe Pipio::HtmlLogParser do
   end
 
   def first_line_of_chat(aliases = 'Gabe B-W', &block)
-    build_chat(aliases, &block).lines.first
+    build_chat(aliases, &block).messages.first
   end
 end

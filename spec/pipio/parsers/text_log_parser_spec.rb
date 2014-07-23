@@ -5,7 +5,7 @@ describe Pipio::TextLogParser do
         b.message
       end
 
-      expect(chat.lines.size).to eq(1)
+      expect(chat.messages.size).to eq(1)
     end
 
     it "returns a Chat with the correct message type" do
@@ -13,7 +13,7 @@ describe Pipio::TextLogParser do
         b.message
       end
 
-      expect(chat.lines.first).to be_instance_of(Pipio::XMLMessage)
+      expect(chat.messages.first).to be_instance_of(Pipio::XMLMessage)
     end
 
     it "returns a Chat with the correct data" do
@@ -21,7 +21,7 @@ describe Pipio::TextLogParser do
         b.first_line time: '2006-12-21 22:36:06', from: 'awesome SN'
         b.message from_alias: 'Gabe B-W', time: '22:36:11',
           text: "what are you doing tomorrow?"
-      end.lines.first
+      end.messages.first
 
       expect(message.sender_screen_name).to eq("awesomesn")
       expect(message.body).to eq("what are you doing tomorrow?")

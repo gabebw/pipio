@@ -1,8 +1,17 @@
 describe Pipio::Chat do
   describe '#to_s' do
-    it 'converts all lines to strings and joins them' do
+    it 'converts all Messages to strings and joins them' do
+      chat = Pipio::Chat.new([:a, 1, 3], metadata)
+
+      expect(chat.to_s).to eq('a13')
+    end
+  end
+
+  describe '#messages' do
+    it 'returns all messages' do
       chat = Pipio::Chat.new(%w(a b c), metadata)
-      expect(chat.to_s).to eq('abc')
+
+      expect(chat.messages).to eq %w(a b c)
     end
   end
 

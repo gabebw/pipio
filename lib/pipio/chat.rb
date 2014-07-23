@@ -1,15 +1,15 @@
 module Pipio
-  # The container object for each line of a parsed chat. It includes the
-  # Enumerable module, so each/map/reject etc all work.
+  # The container object for each Message in a chat. It includes the Enumerable
+  # module, so each/map/reject etc all work and will iterate over the Messages.
   class Chat
     include Enumerable
 
-    def initialize(lines, metadata)
-      @lines = lines
+    def initialize(messages, metadata)
+      @messages = messages
       @metadata = metadata
     end
 
-    attr_reader :lines
+    attr_reader :messages
 
     def start_time_xmlschema
       @metadata.start_time.xmlschema
@@ -33,7 +33,7 @@ module Pipio
 
     # Iterate over each Message.
     def each(&block)
-      @lines.each(&block)
+      @messages.each(&block)
     end
   end
 end
