@@ -1,7 +1,8 @@
 # pipio [![Build Status](https://secure.travis-ci.org/gabebw/pipio.png)](http://travis-ci.org/gabebw/pipio) [![Code Climate](https://codeclimate.com/github/gabebw/pipio.png)](https://codeclimate.com/github/gabebw/pipio)
 
-Convert [Pidgin](http://pidgin.im/) (formerly gaim) logs to the
-[Adium](http://adium.im/) format.
+Pipio parses [Pidgin](http://pidgin.im/) (formerly gaim) logs. It can output
+them in Adium format by calling `to_s` on a `Pipio::Chat` object or any of the
+message objects in `Pipio::Chat#messages`.
 
 ## For the impatient
 
@@ -12,7 +13,7 @@ To deal with meta-information about the chat itself:
     if chat
       puts "Screen name of the person you chatted with: #{chat.their_screen_name}"
       puts "Time the chat started: #{chat.start_time_xmlschema}"
-      puts "Chat contents:"
+      puts "Chat contents, in adium format:"
       puts chat.to_s
     else
       puts "Oh no! Could not parse! Please open an issue."
