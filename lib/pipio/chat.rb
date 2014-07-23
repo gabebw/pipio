@@ -28,7 +28,7 @@ module Pipio
     end
 
     def to_s
-      map(&:to_s).join
+      map(&:to_s).join("\n")
     end
 
     # Iterate over each Message.

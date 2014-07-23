@@ -3,7 +3,7 @@ describe Pipio::Chat do
     it 'converts all Messages to strings and joins them' do
       chat = Pipio::Chat.new([:a, 1, 3], metadata)
 
-      expect(chat.to_s).to eq('a13')
+      expect(chat.to_s).to eq("a\n1\n3")
     end
   end
 
