@@ -1,5 +1,5 @@
 describe Pipio::ParserFactory do
-  let(:aliases) { '' }
+  let(:aliases) { [] }
 
   %w(html htm HTML).each do |html_extension|
     context "when passed a .#{html_extension} file" do

@@ -149,12 +149,12 @@ describe Pipio::HtmlLogParser do
     end
   end
 
-  def build_chat(aliases = 'Gabe B-W', &block)
+  def build_chat(aliases = ['Gabe B-W'], &block)
     file = create_chat_file('file.html', &block)
-    Pipio::HtmlLogParser.new(file.path, aliases).parse
+    Pipio::HtmlLogParser.new(file.path, Array(aliases)).parse
   end
 
-  def first_line_of_chat(aliases = 'Gabe B-W', &block)
-    build_chat(aliases, &block).messages.first
+  def first_line_of_chat(aliases = ['Gabe B-W'], &block)
+    build_chat(Array(aliases), &block).messages.first
   end
 end

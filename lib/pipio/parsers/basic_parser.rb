@@ -1,7 +1,7 @@
 module Pipio
   class BasicParser
     def initialize(source_file_path, my_aliases, line_regex, line_regex_status, cleaner)
-      @my_aliases = my_aliases.split(',')
+      @my_aliases = my_aliases
       @line_regex = line_regex
       @line_regex_status = line_regex_status
       @my_alias = @my_aliases.first

@@ -30,8 +30,8 @@ describe Pipio::TextLogParser do
     end
   end
 
-  def build_chat(aliases = 'Gabe B-W', &block)
+  def build_chat(aliases = ['Gabe B-W'], &block)
     path = create_chat_file('file.txt', &block).path
-    Pipio::TextLogParser.new(path, aliases).parse
+    Pipio::TextLogParser.new(path, Array(aliases)).parse
   end
 end

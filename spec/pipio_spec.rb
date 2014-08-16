@@ -58,6 +58,6 @@ describe Pipio, ".parse" do
   end
 
   def aliases
-    ''
+    []
   end
 end
