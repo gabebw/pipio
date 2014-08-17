@@ -12,7 +12,7 @@ module Pipio
     attr_reader :messages
 
     def start_time_xmlschema
-      @metadata.start_time.xmlschema
+      @metadata.start_time.xmlschema.sub(/:00$/, "00")
     end
 
     def my_screen_name
