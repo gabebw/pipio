@@ -9,6 +9,8 @@ require 'mocha/api'
 
 Dir['spec/support/**/*.rb'].each { |f| require File.expand_path(f) }
 
+SPEC_ROOT = File.dirname(__FILE__)
+
 RSpec.configure do |config|
   config.mock_with :mocha
 
