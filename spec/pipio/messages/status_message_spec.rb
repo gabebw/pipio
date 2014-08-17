@@ -7,7 +7,7 @@ describe Pipio::StatusMessage, '#to_s' do
 
   it 'has the correct time' do
     time = Time.now
-    formatted_time = time.xmlschema
+    formatted_time = time.xmlschema.sub(/:00$/, "00")
     result = create_status_message(time: time).to_s
     expect(result).to include %(time="#{formatted_time}")
   end

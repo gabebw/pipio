@@ -9,7 +9,7 @@ describe Pipio::AutoReplyMessage, '#to_s' do
 
   it 'has the correct time' do
     time = Time.now
-    formatted_time = time.xmlschema
+    formatted_time = time.xmlschema.sub(/:00$/, "00")
     expect(auto_reply_message(time: time).to_s).to include %(time="#{formatted_time}")
   end
 

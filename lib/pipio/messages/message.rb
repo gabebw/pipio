@@ -17,7 +17,7 @@ module Pipio
     private
 
     def adium_formatted_time
-      @time.xmlschema
+      @time.xmlschema.sub(/:00$/, "00")
     end
   end
 end
