@@ -28,10 +28,6 @@ describe Pipio::StatusMessage, '#to_s' do
     expect(create_status_message.to_s).to match(/^<status/)
   end
 
-  it 'ends in a newline' do
-    expect(create_status_message.to_s).to match(/\n$/)
-  end
-
   def create_status_message(opts = {})
     opts[:sender_screen_name] ||= 'jim_sender'
     opts[:time] ||= Time.now

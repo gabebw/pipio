@@ -11,7 +11,7 @@ module Pipio
     attr_reader :body
 
     def to_s
-      %(<message sender="#{@sender_screen_name}" time="#{adium_formatted_time}" alias="#{@sender_alias}">#{@styled_body}</message>\n)
+      %(<message sender="#{@sender_screen_name}" time="#{adium_formatted_time}" alias="#{@sender_alias}">#{@styled_body}</message>)
     end
 
     private
