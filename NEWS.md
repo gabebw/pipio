@@ -1,6 +1,11 @@
-## HEAD
+## v0.0.2
 
-* Pass around aliases as an array instead of a comma-delimited string.
+* Remove ending newlines from Message subclasses' `to_s` output
+* Remove `Chat#start_time_xmlschema` in favor of `Chat#start_time`, which
+  returns an actual Time object
+* Output chat message times using Adium's timezone format (`-0400`, not
+  `-04:00`)
+* Internal: pass around aliases as an array instead of a comma-delimited string
 
 ## 0.0.1
 
