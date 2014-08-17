@@ -1,9 +1,5 @@
 module Pipio
   class Metadata
-    NORMALIZED_SERVICE = {
-      "aim" => "AIM",
-    }
-
     def initialize(metadata_hash)
       @service = metadata_hash[:service]
       @my_screen_name = normalize_screen_name(metadata_hash[:my_screen_name])
@@ -11,7 +7,7 @@ module Pipio
       @start_time = metadata_hash[:start_time]
     end
 
-    attr_reader :my_screen_name, :their_screen_name, :start_time
+    attr_reader :my_screen_name, :their_screen_name, :start_time, :service
 
     def valid?
       [@their_screen_name, @my_screen_name, @start_time, @service].all?
@@ -27,10 +23,6 @@ module Pipio
 
     def start_mday
       @start_time.mday
-    end
-
-    def service
-      NORMALIZED_SERVICE.fetch(@service, @service)
     end
 
     private

@@ -1,13 +1,8 @@
 describe Pipio::Metadata do
   context '#service' do
-    it "normalized aim to AIM" do
-      metadata = Pipio::Metadata.new(service: 'aim')
-      expect(metadata.service).to eq('AIM')
-    end
-
-    it "returns the service name otherwise" do
-      metadata = Pipio::Metadata.new(service: 'irc')
-      expect(metadata.service).to eq('irc')
+    it "returns the service name" do
+      metadata = Pipio::Metadata.new(service: "aim")
+      expect(metadata.service).to eq "aim"
     end
   end
 
