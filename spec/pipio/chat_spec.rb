@@ -37,13 +37,12 @@ describe Pipio::Chat do
     end
   end
 
-  describe '#start_time_xmlschema' do
-    it 'is the start time of the chat in near-xmlschema format' do
+  describe '#start_time' do
+    it 'is the start time of the chat' do
       time = Time.now
-      xmlschema = time.xmlschema.sub(/:00$/, "00")
       chat = Pipio::Chat.new([], metadata(start_time: time))
 
-      expect(chat.start_time_xmlschema).to eq(xmlschema)
+      expect(chat.start_time).to eq(time)
     end
   end
 

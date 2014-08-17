@@ -12,7 +12,6 @@ To deal with meta-information about the chat itself:
     chat = Pipio.parse(path_to_chat_log, ["Gabe B-W", "Gabe", "Other Alias"])
     if chat
       puts "Screen name of the person you chatted with: #{chat.their_screen_name}"
-      puts "Time the chat started: #{chat.start_time_xmlschema}"
       puts "Chat contents, in adium format:"
       puts chat.to_s
     else
