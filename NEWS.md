@@ -1,3 +1,7 @@
+## HEAD (unreleased)
+
+* Parse timestamps formatted like `Tue 06 Dec 2011 11:03:40 AM PST`
+
 ## v0.0.2
 
 * Remove ending newlines from Message subclasses' `to_s` output

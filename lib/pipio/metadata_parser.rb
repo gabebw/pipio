@@ -37,7 +37,7 @@ module Pipio
     end
 
     def start_time
-      match = @first_line.match(%r{ at ([-\d/APM: ]+) on})
+      match = @first_line.match(%r{ at ([-A-Za-z0-9/: ]+) on })
       if match
         timestamp = match[1]
         parse_time(timestamp)
