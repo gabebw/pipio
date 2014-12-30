@@ -2,6 +2,8 @@
 
 * Parse timestamps formatted like `Tue 06 Dec 2011 11:03:40 AM PST`
 * Drop support for Ruby 1.9.x (#7)
+* Output timestamps in UTC timezone because Adium will display the timestamps in
+  the user's current timezone for us
 
 ## v0.0.2
 

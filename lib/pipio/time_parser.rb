@@ -1,3 +1,6 @@
+require "active_support"
+require "active_support/time"
+
 module Pipio
   class TimeParser
     NO_DATE = /\A\d{1,2}:\d{1,2}:\d{1,2}(?: [AP]M)?\Z/
@@ -12,9 +15,9 @@ module Pipio
     def parse(timestamp)
       if timestamp
         if has_no_date?(timestamp)
-          parse_with_date(@fallback_date_string + " " + timestamp)
+          parse_with_date(@fallback_date_string + " " + timestamp).utc
         else
-          parse_with_date(timestamp)
+          parse_with_date(timestamp).utc
         end
       end
     end
@@ -23,14 +26,22 @@ module Pipio
 
     def parse_with_date(timestamp)
       begin
-        Time.parse(timestamp)
+        current_timezone.parse(timestamp)
       rescue ArgumentError
-        Time.strptime(timestamp, UNPARSEABLE_BY_DATETIME_PARSE)
+        current_timezone.parse Time.strptime(timestamp, UNPARSEABLE_BY_DATETIME_PARSE).to_s
       end
     end
 
     def has_no_date?(timestamp)
       timestamp.strip =~ NO_DATE
+    end
+
+    def current_timezone
+      ActiveSupport::TimeZone[current_timezone_identifier]
+    end
+
+    def current_timezone_identifier
+      Time.now.zone
     end
   end
 end
