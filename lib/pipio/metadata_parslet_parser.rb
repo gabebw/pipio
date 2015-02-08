@@ -20,27 +20,6 @@ module Pipio
 
     private
 
-    def service
-      match = @first_line.match(/\(([a-z]+)\)/)
-      if match
-        match[1]
-      end
-    end
-
-    def their_screen_name
-      match = @first_line.match(/Conversation with (.+?) at/)
-      if match
-        match[1]
-      end
-    end
-
-    def my_screen_name
-      match = @first_line.match(/ on ([^()]+) /)
-      if match
-        match[1]
-      end
-    end
-
     def start_time
       match = @first_line.match(%r{ at ([-A-Za-z0-9/: ]+) on })
       if match
