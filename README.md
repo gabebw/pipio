@@ -1,4 +1,9 @@
-# pipio [![Build Status](https://secure.travis-ci.org/gabebw/pipio.png)](http://travis-ci.org/gabebw/pipio) [![Code Climate](https://codeclimate.com/github/gabebw/pipio.png)](https://codeclimate.com/github/gabebw/pipio)
+# pipio [![Build Status][travis-image]][travis-link] [![Code Climate][cc-image]][cc-link]
+
+[travis-image]: https://travis-ci.org/gabebw/pipio.svg?branch=master
+[travis-link]: https://travis-ci.org/gabebw/pipio
+[cc-image]: https://codeclimate.com/github/gabebw/pipio.svg
+[cc-link]: https://codeclimate.com/github/gabebw/pipio
 
 Pipio parses [Pidgin](http://pidgin.im/) (formerly gaim) logs. It can output
 them in Adium format by calling `to_s` on a `Pipio::Chat` object or any of the
