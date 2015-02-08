@@ -1,12 +1,13 @@
 describe Pipio::MetadataParser do
   context '#parse' do
     it "finds my screen name" do
+      screen_name = "JIM the guy"
       file = create_chat_file('log.html') do |b|
-        b.first_line from: 'JIM'
+        b.first_line from: screen_name
       end
 
       metadata = Pipio::MetadataParser.new(first_line_of(file)).parse
-      expect(metadata[:my_screen_name]).to eq('JIM')
+      expect(metadata[:my_screen_name]).to eq(screen_name)
     end
 
     it "finds their screen name" do
