@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "pipio"
   spec.version       = Pipio::VERSION
   spec.authors       = ["Gabe Berke-Williams"]
-  spec.email         = "gabe@thoughtbot.com"
+  spec.email         = "gabebw@gabebw.com"
   spec.description   = "A fast, easy way to parse Pidgin (gaim) logs"
   spec.summary       = spec.description
   spec.homepage      = "https://github.com/gabebw/pipio"
