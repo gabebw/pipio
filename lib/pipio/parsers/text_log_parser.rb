@@ -1,6 +1,6 @@
 module Pipio
   class TextLogParser
-    TIMESTAMP_REGEX = '\((?<timestamp>\d{1,2}:\d{1,2}:\d{1,2})\)'
+    TIMESTAMP_REGEX = '\((?<timestamp>\d{1,2}:\d{1,2}:\d{1,2} ..)\)'
 
     def initialize(source_file_path, user_aliases)
       # @line_regex matches a line in a text log file other than the first.

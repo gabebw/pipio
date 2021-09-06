@@ -46,7 +46,7 @@ module Pipio
 
     def parse_time(timestamp)
       begin
-        Time.parse(timestamp)
+        Time.strptime(timestamp, '%m/%d/%Y %I:%M:%S %p')
       rescue ArgumentError
         TimeParser.new(nil, nil, nil).parse(timestamp)
       end

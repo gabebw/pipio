@@ -10,13 +10,21 @@ module Pipio
 
     def initialize(year, month, day)
       @fallback_date_string = "#{year}-#{month}-#{day}"
+      @last_timestamp = 0
     end
 
     def parse(timestamp)
       if timestamp
         if has_no_date?(timestamp)
+          test_timestamp = parse_with_date(@fallback_date_string + " " + timestamp).utc
+
+          if (@last_timestamp > test_timestamp.to_i)
+            @fallback_date_string = (Date.parse(@fallback_date_string) + 1.day).to_s
+          end
+          @last_timestamp = parse_with_date(@fallback_date_string + " " + timestamp).utc.to_i
           parse_with_date(@fallback_date_string + " " + timestamp).utc
         else
+          @last_timestamp = parse_with_date(timestamp).utc.to_i
           parse_with_date(timestamp).utc
         end
       end
@@ -37,7 +45,7 @@ module Pipio
     end
 
     def current_timezone
-      ActiveSupport::TimeZone[current_timezone_identifier]
+      ActiveSupport::TimeZone[nil] # Replace nil with your actual time zone, e.g. 'America/Toronto'
     end
 
     def current_timezone_identifier
